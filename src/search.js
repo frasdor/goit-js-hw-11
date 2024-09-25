@@ -42,14 +42,26 @@ function displayImages(images) {
   const markup = images.map((image) => {
     return `
       <a href="${image.largeImageURL}" class="image-item">
-        <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy">
-        <div class="info">
-          <p>Likes: ${image.likes}</p>
-          <p>Views: ${image.views}</p>
-          <p>Comments: ${image.comments}</p>
-          <p>Downloads: ${image.downloads}</p>
+      <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy">
+      <div class="info">
+        <div class="info-item">
+          <p>Likes</p>
+          <p>${image.likes}</p>
         </div>
-      </a>`;
+        <div class="info-item">
+          <p>Views</p>
+          <p>${image.views}</p>
+        </div>
+        <div class="info-item">
+          <p>Comments</p>
+          <p>${image.comments}</p>
+        </div>
+        <div class="info-item">
+          <p>Downloads</p>
+          <p>${image.downloads}</p>
+        </div>
+      </div>
+    </a>`;
   }).join('');
 
   gallery.innerHTML = markup;
